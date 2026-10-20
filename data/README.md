@@ -1,40 +1,39 @@
-# Data Tugas 1
+# Sumber Data dan Instruksi Unduhan
 
-## Dataset yang Dipilih
+## 1. Informasi Dataset
 
-Isi informasi berikut sebelum Milestone 1.
+- **Nama dataset:** IndonesiaAI Cleaned Data Split 0
+- **Sumber:** [Hugging Face – IndonesiaAI/cleaned-data-split-0](https://huggingface.co/datasets/IndonesiaAI/cleaned-data-split-0)
+- **Format:** Parquet
+- **Split yang digunakan:** `train`
+- **Perkiraan jumlah data:** 1.050.257 baris
+- **Perkiraan ukuran:** 874 MB
 
-| Item | Isi |
-|---|---|
-| Nama dataset | `[isi nama dataset]` |
-| Sumber | `[URL BPS / Satu Data Indonesia / BMKG / HuggingFace / Kaggle]` |
-| Lisensi/ketentuan pakai | `[isi]` |
-| Ukuran | `[>= 500 MB atau > 1.000.000 baris]` |
-| Periode data | `[isi]` |
-| Unit analisis | `[isi]` |
+Jumlah baris dan ukuran merupakan informasi yang perlu diverifikasi kembali berdasarkan file dataset yang berhasil diunduh.
 
-## Tempat Mencari Dataset
+## 2. Cara Mengunduh Dataset
 
-Pilih dataset Indonesia yang legal digunakan, dapat didokumentasikan sumbernya, dan memenuhi batas ukuran tugas.
+1. Buka halaman dataset di Hugging Face:
+   https://huggingface.co/datasets/IndonesiaAI/cleaned-data-split-0
+2. Buka bagian **Files and versions**.
+3. Unduh file Parquet yang diperlukan dari split `train`, atau gunakan metode pengunduhan melalui Python yang sesuai dengan struktur dataset.
+4. Simpan file Parquet ke folder `data/raw/` pada direktori utama proyek.
 
-| Situs | Kegunaan |
-|---|---|
-| [Satu Data Indonesia](https://data.go.id/) | Portal data terbuka lintas instansi pemerintah Indonesia. |
-| [Badan Pusat Statistik](https://www.bps.go.id/) | Statistik sosial, ekonomi, kependudukan, dan data wilayah. |
-| [BMKG Data Online](https://dataonline.bmkg.go.id/) | Data cuaca, iklim, gempa bumi, dan observasi meteorologi. |
-| [Hugging Face Datasets](https://huggingface.co/datasets) | Dataset publik yang dapat dicari berdasarkan topik, bahasa, atau ukuran. |
-| [Kaggle Datasets](https://www.kaggle.com/datasets) | Katalog dataset publik; periksa lisensi dan dokumentasi pembuatnya. |
-| [Google Dataset Search](https://datasetsearch.research.google.com/) | Mesin pencari untuk menemukan dataset dari berbagai portal. |
+Pastikan semua file Parquet yang dibutuhkan tersedia sebelum menjalankan notebook.
 
-## Cara Memperoleh Data
+## 3. Struktur Penyimpanan
 
-1. Buka URL sumber di atas.
-2. Unduh file ke folder `data/raw/` tanpa mengubah data mentah.
-3. Catat nama file dan checksum bila tersedia.
-4. Ubah variabel `DATA_PATH` pada `notebooks/01_data_profiling.ipynb` agar menunjuk ke file tersebut.
+- `data/raw/`: menyimpan dataset asli.
+- `data/processed/`: menyimpan dataset yang telah melalui proses pembersihan.
 
-## Aturan Penyimpanan
+Dataset mentah dan hasil pemrosesan tidak disertakan dalam repository GitHub karena ukuran file yang besar. Pengguna dapat mengunduh kembali dataset dari sumber di atas dan menjalankan notebook secara berurutan untuk mereproduksi proses analisis.
 
-- Jangan commit dataset mentah atau hasil olahan berukuran besar ke Git.
-- File pada `data/raw/` adalah data asli dan tidak boleh diubah.
-- Simpan hasil transformasi yang dapat direproduksi pada `data/processed/`.
+## 4. Reproduksibilitas
+
+Jalankan notebook dengan urutan berikut:
+
+1. `notebooks/01_data_profiling.ipynb`
+2. `notebooks/02_data_cleaning.ipynb`
+3. `notebooks/03_eda_and_insights.ipynb`
+
+Pastikan dependensi pada `requirements.txt` telah terpasang dan lokasi dataset sesuai dengan instruksi proyek.
